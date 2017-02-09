@@ -12,6 +12,7 @@
         <div class="col-lg-5 col-lg-offset-1" th:each="post : ${listOfPosts}">
             <h3 th:text="${post.title}"></h3>
             <p th:text="${post.body}"></p>
+            <a class="btn btn-primary" th:href="@{'/posts/'+ ${post.id} }">Show Post</a>
         </div>
 
 </div>
