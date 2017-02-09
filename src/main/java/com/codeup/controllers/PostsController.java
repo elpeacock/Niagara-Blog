@@ -1,13 +1,12 @@
 package com.codeup.controllers;
 
+import com.codeup.models.Post;
+import com.codeup.repositories.Posts;
 import com.codeup.services.PostSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by user on 2/7/17.
@@ -17,6 +16,9 @@ public class PostsController {
 
     @Autowired
     PostSvc postSvc;
+
+    @Autowired
+    Posts postsDao;
 
     @GetMapping("/posts")
     public String viewPosts(Model model) {
@@ -35,15 +37,17 @@ public class PostsController {
     }
 
     @GetMapping("/posts/create")
-    @ResponseBody
-    public String createPostForm() {
-        return "view the form to create post";
+    public String showCreatePostForm(@ModelAttribute Post post, Model viewModel) {
+
+        viewModel.addAttribute("post", new Post());
+        return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String createPost() {
-        return "create a new post";
+    public String createPost(@ModelAttribute Post post) {
+
+        postSvc.save(post);
+        return "redirect:/posts";
     }
 
 }

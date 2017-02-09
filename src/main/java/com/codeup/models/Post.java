@@ -1,11 +1,22 @@
 package com.codeup.models;
 
+import javax.persistence.*;
+
 /**
  * Created by user on 2/8/17.
  */
+@Entity
+@Table(name = "posts")
 public class Post {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false, length = 150)
     private String title;
+
+    @Column(nullable = false, length = 2000)
     private String body;
 
 
