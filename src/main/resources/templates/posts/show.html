@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments/header :: header">
+<head th:include="fragments/header :: header(${singlePost.title})">
     <meta charset="UTF-8" />
-    <title>Show Single Post</title>
+    <title></title>
 </head>
 <body>
 <div th:include="fragments/navbar :: navbar"></div>
@@ -11,6 +11,16 @@
         <div class="col-lg-6 col-lg-offset-2" th:object="${singlePost}">
             <h1 th:text="*{title}"></h1>
             <p th:text="*{body}"></p>
+            <p th:text="'Post Author: ' + *{user.username}"></p>
+            <a th:href="*{'mailto:' + user.email}">Email Post Author</a>
+            <div>
+                <a class="btn btn-primary" th:href="@{'/posts/' + ${singlePost.id} + '/edit'}">Edit</a>
+                <form th:method="POST" th:action="@{/posts/delete}">
+                    <input type="hidden" name="id" th:value="${singlePost.id}" />
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+
         </div>
 
     </div>

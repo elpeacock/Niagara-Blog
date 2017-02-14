@@ -49,9 +49,15 @@
 
 
 
-            <li class="active"><a href="">Sign Up</a></li>
+            <li class="active"><a th:href="@{/register}">Sign Up</a></li>
 
-            <li><a href="">Log In</a></li>
+            <li><a th:href="@{/login}">Log In</a></li>
+
+            <!--<li>-->
+                <!--<form th:action="@{/logout}" th:method="POST">-->
+                    <!--<button type=submit>Log out</button>-->
+                <!--</form>-->
+            <!--</li>-->
 
             </li>
 
