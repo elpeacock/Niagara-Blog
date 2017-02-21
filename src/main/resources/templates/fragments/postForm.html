@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<div class="container" th:fragment="postForm(title, action)">
+    <h1 th:text="${title}"></h1>
+
+    <form class="form" method="POST" action="th:text=" + ${action}>
+
+        Title: <input class="form-control" type="text" name="title" value=""  />
+
+        <br />
+        <!--<div class="alert alert-danger"></div>-->
+
+        Content: <textarea class="form-control" name="body" rows="5" cols="40"></textarea>
+
+        <!--<br>-->
+        <!--<div class="alert alert-danger"></div>-->
+
+        <!--Link to URL: <input class="form-control" type="text" name="url" value="" />-->
+
+        <!--<br>-->
+        <!--<div class="alert alert-danger"></div>-->
+
+        <br />
+        <input class="btn-success btn" type="submit" />
+    </form>
+
+</div>
+
+
+</body>
+</html>

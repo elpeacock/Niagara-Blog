@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:include="fragments/header :: header('Register')">
     <meta charset="UTF-8" />
     <title></title>
@@ -13,12 +14,25 @@
                 <form th:action="@{/users/register}" th:method="POST" th:object="${user}">
                     <label for="username">Username</label>
                     <input class="form-control" id="username" th:field="*{username}" />
+                    <br />
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('username')}"
+                         th:errors="*{username}"></div>
 
                     <label for="email">Email</label>
                     <input class="form-control" id="email" th:field="*{email}" />
+                    <br />
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 
                     <label for="password">Password</label>
                     <input class="form-control" type="password" id="password" th:field="*{password}" />
+                    <br />
+
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" />
+                    <br />
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('password')}"
+                         th:errors="*{password}"></div>
+                    <br />
 
                     <input class="btn btn-success" type="submit" />
                 </form>

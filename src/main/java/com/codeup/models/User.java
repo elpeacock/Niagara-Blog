@@ -1,6 +1,12 @@
 package com.codeup.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -14,15 +20,21 @@ public class User {
     long id;
 
     @Column(nullable = false)
+    @NotBlank(message = "You must enter a username")
     private String username;
 
     @Column(nullable = false)
+    @Email(message = "Enter a valid email")
     private String email;
 
     @Column(nullable = false)
+    @NotBlank(message = "You must enter a password")
+    @Size(min = 8, message = "Your password must contain at least 8 characters")
+    @JsonIgnore //add this annotation to any fields that contain sensitive info
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonBackReference
     private List<Post> posts;
 
     // this is a copy constructor -> an alternative to clone

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:include="fragments/header :: header('All Posts')">
     <meta charset="UTF-8" />
     <title></title>
@@ -8,16 +9,15 @@
 <div th:include="fragments/navbar :: navbar"></div>
 <div class="container">
     <h1>All Posts</h1>
-        <div class="row">
-            <div class="col-lg-7 col-lg-offset-2" th:each="post : ${listOfPosts}">
-                <h3 th:text="${post.title}"></h3>
-                <p th:text="${post.body}"></p>
-                <p th:text="'Posted by: ' + ${post.user.username}"></p>
-                <a class="btn btn-primary" th:href="@{'/posts/'+ ${post.id} }">Show Post</a>
-            </div>
+    <div id="load-posts">
+        <div class="col-lg-3">
+
         </div>
+        <div class="col-lg-7"></div>
+    </div>
 </div>
 
 <div th:include="fragments/footer :: footer"></div>
+
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:include="fragments/header :: header('Create A Post')">
     <meta charset="UTF-8" />
     <title></title>
@@ -9,19 +10,17 @@
     <div class="container">
         <h1>Create a Post</h1>
 
-        <form class="form" method="POST" th:action="@{/posts/create}" th:object="${post}">
+        <form class="form" method="POST" th:action="@{/posts/create}" th:object="${post}" enctype="multipart/form-data">
 
             Title: <input class="form-control" type="text" name="title" value="" th:field="*{title}" />
-
             <br />
-            <!--<div class="alert alert-danger"></div>-->
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
 
             Content: <textarea class="form-control" name="body" rows="5" cols="40" th:field="*{body}"></textarea>
+            <br />
+            <div class="alert alert-danger" th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></div>
 
-            <!--<br>-->
-            <!--<div class="alert alert-danger"></div>-->
-
-            <!--Link to URL: <input class="form-control" type="text" name="url" value="" />-->
+            Upload an Image: <input class="form-control" type="file" id="image" name="image-file" value="" />
 
             <!--<br>-->
             <!--<div class="alert alert-danger"></div>-->

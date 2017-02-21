@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:include="fragments/header :: header(${user.username})">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<div th:include="fragments/navbar :: navbar"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-2" th:object="${user}">
+            <h1 th:text="'Hello ' + *{username} + '!'"></h1>
+            <p>Here is your account information:</p>
+            <p th:text="'username: ' + *{username}"></p>
+            <p th:text="'email: ' + *{email}"></p>
+            <p>Here is a list of your active posts:</p>
+        </div>
+    </div>
+    <div class="row" sec:authorize="isAuthenticated()">
+        this content only shown to authenticated users.
+        <br />
+        logged in user: <span sec:authentication="name"></span>
+        <br />
+        existing roles: <span sec:authentication="principal.authorities"></span>
+    </div>
+    <div class="row" sec:authorize="hasRole('ROLE_ADMIN')">
+        shown only to admin role
+    </div>
+    <div class="row" sec:authorize="hasRole('ROLE_USER')">
+        shown only to user role
+    </div>
+    <div class="row" sec:authorize="hasRole('ROLE_GUEST')">
+        shown only to gues role
+    </div>
+</div>
+
+</body>
+</html>

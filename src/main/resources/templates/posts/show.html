@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:include="fragments/header :: header(${singlePost.title})">
     <meta charset="UTF-8" />
     <title></title>
@@ -11,9 +12,11 @@
         <div class="col-lg-6 col-lg-offset-2" th:object="${singlePost}">
             <h1 th:text="*{title}"></h1>
             <p th:text="*{body}"></p>
+            <img th:attr="src=*{'/uploads/' + image}" />
             <p th:text="'Post Author: ' + *{user.username}"></p>
             <a th:href="*{'mailto:' + user.email}">Email Post Author</a>
-            <div>
+
+            <div sec:authorize="isAuthenticated()">
                 <a class="btn btn-primary" th:href="@{'/posts/' + ${singlePost.id} + '/edit'}">Edit</a>
                 <form th:method="POST" th:action="@{/posts/delete}">
                     <input type="hidden" name="id" th:value="${singlePost.id}" />
