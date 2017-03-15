@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .and()
                 // restricted area(only logged in users can see the pages in this section)
                 .authorizeRequests()
-                .antMatchers("/posts/create") // only authenticated users can create ads
+                .antMatchers("/posts/create", "/users/{id}") // only authenticated users can create ads, etc.
                 .authenticated()
         ;
     }

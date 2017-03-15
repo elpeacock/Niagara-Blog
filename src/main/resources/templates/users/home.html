@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header('Blog Home')">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<div th:include="fragments/navbar :: navbar"></div>
+<div class="background-container">
+    <div class="section">
+        <div class="row inline-quote">
+            <div class="col s12 m12 l12">
+                <h1>Title</h1>
+                <blockquote>
+                    <p>"There can be no vulnerability without risk; there can be no community without vulnerability;
+                        there can be no peace, and ultimately no life, without community."</p>
+                    <footer><span class="italic">- M. Scott Peck</span></footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="row page-content vertical-divider">
+            <div class="col s12 m8 l9">
+                <h3>Recent Posts</h3>
+                <h5>Post title</h5>
+                <p>post body</p>
+                <h5>Post title</h5>
+                <p>post body</p>
+                <h5>Post title</h5>
+                <p>post body</p>
+                <h5>Post title</h5>
+                <p>post body</p>
+                <h5>Post title</h5>
+                <p>post body</p>
+                <h5>Post title</h5>
+                <p>post body</p>
+                <h5>Post title</h5>
+                <p>post body</p>
+            </div>
+            <hr class="section-divider" />
+            <div class="col s12 m4 l3">
+                <h3>Tags</h3>
+                <ul>
+                    <li>tag 1</li>
+                    <li>tag 2</li>
+                    <li>tag 3</li>
+                    <li>tag 4</li>
+                    <li>....</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="parallax-container">-->
+    <!--<div class="parallax">-->
+        <!--<img src="img/sunsetbridge.jpg" />-->
+    <!--</div>-->
+<!--</div>-->
+<div th:include="fragments/footer :: footer"></div>
+</body>
+</html>

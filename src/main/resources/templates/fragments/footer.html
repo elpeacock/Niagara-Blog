@@ -6,17 +6,28 @@
 </head>
 <body>
 
-<div th:fragment="footer" id="footer">
-    <div class="container">
-        <p class="muted credit">Liz's Bliggity Blog in Java</p>
-    </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+<div th:fragment="footer">
+    <footer>
+        <div class="container">
+            <p class="muted credit">Liz's Bliggity Blog in Java</p>
+        </div>
+    </footer>
+
+
+    <!--jQuery-->
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
+    <script src="/scripts/jquery-useme.js"></script>
+
+    <!--materialize-->
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+
+    <!--custom js-->
     <script src="/scripts/posts-list.js"></script>
+    <script src="/scripts/blogMain.js"></script>
 </div>
 
 

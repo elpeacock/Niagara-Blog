@@ -10,19 +10,20 @@
         console.log(posts);
         var i;
         var html = '';
-        var imgUrl = '';
         for(i = 0; i < posts.length; i++) {
 
-            html += '<div class="row"><div class="col-lg-3"><div class="image-thumbnail" id="image-target"></div></div>' +
-                '<div class="col-lg-7"><h3>' + posts[i].title + '</h3><p>' + posts[i].body + '</p><p>Posted' +
+            var style = "background-image: url(/uploads/" + posts[i].image + ");";
+
+            html += '<h3>' + posts[i].title + '</h3><div class="row"><div class="col s12 m3 l3"><div' +
+                ' class="image-thumbnail image-target" style="' + style + '"></div></div>' +
+                '<div class="col s12 m9 l9"><p>' + posts[i].body + '</p><p>Posted' +
                 ' by: ' + posts[i].user.username + '</p><a class="btn btn-primary" href="/posts/'
                 + posts[i].id + '">Show Post</a></div></div>';
 
-            imgUrl = '/uploads/' + posts[i].image;
         }
 
         $('#load-posts').html(html);
-        $('#image-target').css('background-image', 'url(' + imgUrl + ')');
+
 
     });
 })();

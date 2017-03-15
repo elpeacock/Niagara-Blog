@@ -1,6 +1,186 @@
+/*posts image*/
 .image-thumbnail {
     height: 230px;
-    width: 230px;
+    width: auto;
     background-size: cover;
     background-position: center;
 }
+
+.background {
+    background-size: cover;
+    background-position: center;
+}
+
+/*navbar*/
+
+.userView {
+    height: 150px;
+}
+
+.nav-wrapper {
+    position: fixed;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.side-nav {
+    max-width: 225px;
+    background-color: rgba(0, 0, 0, .5);
+    color: whitesmoke;
+}
+
+.side-nav a {
+    color: whitesmoke;
+}
+
+#nav-mobile {
+    margin-top: 0px;
+}
+
+
+
+/*forms style/color*/
+/* label color */
+.input-field label {
+    color: #c51162;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #880e4f;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #880e4f;
+    box-shadow: 0 1px 0 0 #c51162;
+}
+/* label focus color */
+.input-field input[type=password]:focus + label {
+    color: #880e4f;
+}
+/* label underline focus color */
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #880e4f;
+    box-shadow: 0 1px 0 0 #c51162;
+}
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #880e4f;
+    box-shadow: 0 1px 0 0 #c51162;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #880e4f;
+    box-shadow: 0 1px 0 0 #c51162;
+}
+/* valid color */
+.input-field input[type=password].valid {
+    border-bottom: 1px solid #880e4f;
+    box-shadow: 0 1px 0 0 #c51162;
+}
+/* invalid color */
+.input-field input[type=password].invalid {
+    border-bottom: 1px solid #880e4f;
+    box-shadow: 0 1px 0 0 #c51162;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #c51162;
+}
+
+.form-button {
+    background-color: #880e4f;
+}
+
+.waves-effect.waves-red.waves-ripple {
+    /* The alpha value allows the text and background color
+    of the button to still show through. */
+    background-color: rgba(136, 14, 79, 0.65);
+}
+.waves-effect.waves-red.waves-ripple:focus {
+    /* The alpha value allows the text and background color
+    of the button to still show through. */
+    background-color: rgba(197, 17, 98, 0.65);
+}
+
+/* vertical divider */
+.vertical-divider{
+    clear: both;
+    position: relative;
+}
+
+.vertical-divider:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.vertical-divider .col:not(:first-child):after, .vertical-divider .col:not(:first-child):after {
+    background: #880e4f;
+    bottom: 20px;
+    content: " ";
+    margin-left: -10px;
+    position: absolute;
+    top: 20px;
+    width: 4px;
+}
+
+.section-divider {
+    display: none;
+}
+
+/* change divider from vertical to horizontal on small screens */
+@media only screen and (max-width: 600px) {
+    .vertical-divider .col:not(:first-child):after, .vertical-divider .col:not(:first-child):after {
+        display: none;
+    }
+
+    .section-divider {
+        display: block;
+        margin-left: 20px;
+        margin-right: 20px;
+        border: 2px solid #880e4f;
+    }
+}
+
+/* homepage feature */
+blockquote {
+    border-left: 5px solid #880e4f;
+    margin:20px;
+}
+
+.italic {
+    font-style: italic;
+}
+.background-container {
+    background-image: url("../img/nightskybackground.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.inline-quote {
+    background-color: rgba(0, 0, 0, .5);
+    color: whitesmoke;
+    max-width: 75%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.page-content {
+    background-color: whitesmoke;
+    margin-top: 100px;
+    max-width: 75%;
+
+}
+
+/*!* footer styling *!*/
+/*footer {*/
+    /*margin-top: 100px;*/
+/*}*/

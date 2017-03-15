@@ -42,10 +42,10 @@ public class AuthenticationController {
     @GetMapping("/register")
     public String showRegisterForm(Model viewModel) {
         viewModel.addAttribute("user", new User());
-        return "/users/register";
+        return "users/register";
     }
 
-    @PostMapping("/users/register")
+    @PostMapping("/register")
     public String registerUser(
             @Valid User user,
             Errors validation,
